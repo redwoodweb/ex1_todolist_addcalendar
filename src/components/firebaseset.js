@@ -4,12 +4,13 @@ import "firebase/firestore";
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
 const firebaseConfig = {
-    apiKey: "AIzaSyAHJad-1qW6LZfCTKu97w8flzPZUk5-SqM",
-    authDomain: "todolistproject-ec4e0.firebaseapp.com",
-    projectId: "todolistproject-ec4e0",
-    storageBucket: "todolistproject-ec4e0.appspot.com",
-    messagingSenderId: "53779584105",
-    appId: "1:53779584105:web:f38134a02c2cf96fc9bef8"
+    apiKey: "AIzaSyAeOeTOoAuDada8qjYmQ6RgUns7eueFbKI",
+    authDomain: "todolist-addcalendar.firebaseapp.com",
+    projectId: "todolist-addcalendar",
+    storageBucket: "todolist-addcalendar.appspot.com",
+    messagingSenderId: "284725172486",
+    appId: "1:284725172486:web:b0752a36f89142fcd2a687",
+    measurementId: "G-Q7QZMFCXSE"
 };
 
 // Initialize Firebase

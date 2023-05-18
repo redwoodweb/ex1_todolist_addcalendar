@@ -1,13 +1,17 @@
 <template>
   <div id="list">
-    <!-- {{ todolist }} -->
+    <!-- {{ todolist }} --> 
+    {{ getCurrentDate() }}   
     <ul>
       <li v-for="(list, index) in todolist.list" v-bind:key="list.id">
-        {{ list }}<button v-bind:data-index="index" v-on:click="removeList">delete</button>
+        <div class="text">{{ list.text }}
+          <div class="date">{{ list.date }}</div>
+        </div>
+        <button v-bind:data-index="index" v-on:click="removeList">delete</button>
       </li>
     </ul>
     <div id="input-area">
-      <input type="text" id="input-text" v-model="inputText" v-on:keyup.enter="addList">
+      <input type="text" id="input-text" v-model="inputText" v-on:keypress.enter="addList">
       <button v-on:click="addList">add</button>
     </div>
   </div>
@@ -33,6 +37,13 @@ export default {
     });
   },
   methods: {
+    getCurrentDate: function(){
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth()+1
+      const day = date.getDate()
+      return `${year}년 ${month}월 ${day}일`;
+    },
     updatelist:function(){
       db.collection("todolist").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -41,7 +52,7 @@ export default {
       });
     },
     addList: function () {
-      this.todolist.list.push(this.inputText);
+      this.todolist.list.push({text: this.inputText, date: this.getCurrentDate()});
       this.updatelist();
       this.inputText = '';
     },
@@ -72,6 +83,13 @@ export default {
     box-sizing: border-box;
     background: #B0A8B9;
     margin-bottom: 10px;
+    .text {
+      text-align: left;
+      .date {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 12px;      
+      }
+    }
   }
   #input-area {
     display: flex;
