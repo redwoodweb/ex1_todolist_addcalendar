@@ -1,7 +1,6 @@
 <template>
   <div id="list">
-    <!-- {{ todolist }} --> 
-    {{ getCurrentDate() }}   
+    <!-- {{ todolist }} -->
     <ul>
       <li v-for="(list, index) in todolist.list" v-bind:key="list.id">
         <div class="text">{{ list.text }}
